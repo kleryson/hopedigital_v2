@@ -7,4 +7,9 @@
 		<?php echo __('To change this text, edit')?> <code>application/views/welcome_content.php</code>.
 	</p>
 </div>
-<?php echo html::div('Conteudo teste');?>
+<?php
+	$arrConteudo = array("teste","teste","teste","teste");
+	$strLinha = html::createColTh($arrConteudo,NULL,array('width'=>'120px'));
+	$strColunas = html::createRow($strLinha);
+	echo html::createTable($strColunas,array("border"=>"1")) ;
+?>
