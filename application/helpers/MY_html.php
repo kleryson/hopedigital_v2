@@ -30,7 +30,16 @@ class html extends html_Core{
 	} 
 	
 	public static function createRow ( $conteudo , array $attributos = NULL, array $arrStyle= NULL){
-		return '<tr '.html::attributes($attributos).' '.html::style($arrStyle).'>'.$conteudo.'</tr>';
+		
+		if (is_string($conteudo))
+			return '<tr '.html::attributes($attributos).' '.html::style($arrStyle).'>'.$conteudo.'</tr>';
+		
+		$strHtml = '';
+		foreach ($conteudo as $strConteudo){
+			$strHtml .= '<tr '.html::attributes($attributos).' '.html::style($arrStyle).'>'.$strConteudo.'</tr>'."\r\n";
+		}
+		
+		return $strHtml;
 	}
 	
 	public static function createColTh ( $conteudo , array $attributos = NULL, array $arrStyle= NULL){

@@ -8,8 +8,13 @@
 	</p>
 </div>
 <?php
+	$arrConteudo = array("N","Desc","Desc","Desc","Desc");
+
 	$arrConteudo = array("teste","teste","teste","teste");
-	$strLinha = html::createColTh($arrConteudo,NULL,array('width'=>'120px'));
+	for ($loopI = 0 ; $loopI < 10 ; $loopI++){
+		$arrMerge=array_merge( array($loopI),$arrConteudo);
+		$strLinha[] = html::createColTh($arrMerge,NULL,array('width'=>'120px'));
+	}
 	$strColunas = html::createRow($strLinha);
 	echo html::createTable($strColunas,array("border"=>"1")) ;
 ?>
